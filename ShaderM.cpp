@@ -13,20 +13,10 @@ ShaderM::ShaderM(const std::string& vs_file, const std::string& fs_file, const s
 	program = CreateProgram(vertex_shader, fragment_shader, geometry_shader);
 }
 
-ShaderM::~ShaderM()
-{
-	GLCall(glDeleteProgram(program));
-}
-
 void ShaderM::Bind()
 {
 	//std::cout << program << std::endl;
 	GLCall(glUseProgram(program));
-}
-
-void ShaderM::Unbind()
-{
-	GLCall(glUseProgram(0));
 }
 
 unsigned int ShaderM::CreateProgram(const std::string& vertex_source, const std::string& fragment_source, const std::string& geometry_source)

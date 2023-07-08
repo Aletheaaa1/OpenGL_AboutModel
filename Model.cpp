@@ -8,7 +8,7 @@ Model::Model(const std::string& file_path)
 	LoadModel(file_path);
 }
 
-void Model::Draw(ShaderM shader)
+void Model::Draw(ShaderM& shader)
 {
 	for (unsigned int i = 0; i < meshes.size(); i++)
 	{
@@ -81,10 +81,25 @@ Mesh Model::ProcessMesh(aiMesh* mesh, const aiScene* scene)
 	}
 
 	auto material = scene->mMaterials[mesh->mMaterialIndex];
+	// 漫反射
 	std::vector<MeshTexture> diffuse_maps = LoadMaterialTextures(material, aiTextureType_DIFFUSE, "texture_diffuse");
 	textures.insert(textures.end(), diffuse_maps.begin(), diffuse_maps.end());
+
+	// 镜面反射
 	std::vector<MeshTexture> specular_maps = LoadMaterialTextures(material, aiTextureType_SPECULAR, "texture_specular");
 	textures.insert(textures.end(), specular_maps.begin(), specular_maps.end());
+
+	// 反射
+	std::vector<MeshTexture> reflection_maps = LoadMaterialTextures(material, aiTextureType_AMBIENT, "texture_reflection");
+	textures.insert(textures.end(), reflection_maps.begin(), reflection_maps.end());
+
+	// 法线贴图
+	std::vector<MeshTexture> normal_maps = LoadMaterialTextures(material, aiTextureType_NORMALS, "texture_normal");
+	textures.insert(textures.end(), normal_maps.begin(), normal_maps.end());
+
+	// 高度贴图
+	std::vector<MeshTexture> height_maps = LoadMaterialTextures(material, aiTextureType_HEIGHT, "texture_height");
+	textures.insert(textures.end(), height_maps.begin(), height_maps.end());
 
 	return Mesh({ vertices, indices, textures });
 }
@@ -92,7 +107,7 @@ Mesh Model::ProcessMesh(aiMesh* mesh, const aiScene* scene)
 std::vector<MeshTexture> Model::LoadMaterialTextures(aiMaterial* mat, aiTextureType type, std::string typeName)
 {
 	std::vector<MeshTexture>  textures;
-	std::cout << mat->GetTextureCount(type) << std::endl;
+	//std::cout << mat->GetTextureCount(type) << std::endl;
 
 	for (unsigned int i = 0; i < mat->GetTextureCount(type); i++)
 	{

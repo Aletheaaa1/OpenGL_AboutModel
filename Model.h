@@ -20,7 +20,7 @@ public:
 	std::vector<Mesh> meshes;
 	std::vector<MeshTexture> textures_loaded;
 	Model(const std::string& file_path);
-	void Draw(ShaderM shader);
+	void Draw(ShaderM& shader);
 private:
 	void LoadModel(const std::string& path);
 	void ProcessNode(aiNode* node, const aiScene* scene);

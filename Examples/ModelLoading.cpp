@@ -121,7 +121,7 @@ int main(void)
 	//Model model{ "./Model/Planet/planet.obj" };
 	Model model{ "./Model/Crisis/nanosuit.obj" };
 
-	ShaderM cube_shader{ "./shader/model.vs" ,"./shader/model.fs" };
+	ShaderM model_shader{ "./shader/model.vs" ,"./shader/model.fs" };
 
 	/* Loop until the user closes the window */
 	while (!glfwWindowShouldClose(window))
@@ -137,12 +137,12 @@ int main(void)
 		glm::mat4 projection = glm::perspective(45.0f, 800.0f / 600.0f, 0.1f, 100.0f);
 		glm::mat4 view = camera.GetViewMatrix();
 		glm::mat4 m = glm::mat4(1.0f);
-		cube_shader.Bind();
-		cube_shader.SetUniformMat4("projection", projection);
-		cube_shader.SetUniformMat4("view", view);
-		cube_shader.SetUniformMat4("model", m);
+		model_shader.Bind();
+		model_shader.SetUniformMat4("projection", projection);
+		model_shader.SetUniformMat4("view", view);
+		model_shader.SetUniformMat4("model", m);
 
-		//model.Draw(cube_shader);
+		model.Draw(model_shader);
 
 		camera.UpdateCameraPosition();
 

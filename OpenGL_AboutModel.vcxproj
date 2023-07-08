@@ -144,8 +144,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Camera.cpp" />
-    <ClCompile Include="ModelLoading.cpp">
+    <ClCompile Include="Examples\Cubemaps.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Examples\ModelLoading.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="LightDirectional.cpp" />
     <ClCompile Include="LightPoint.cpp" />
@@ -161,8 +164,10 @@
     <ClCompile Include="VertexBufferObject.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="shader\model.fs" />
-    <None Include="shader\model.vs" />
+    <None Include="shader\ModelMaps.fs" />
+    <None Include="shader\ModelMaps.vs" />
+    <None Include="shader\Skybox.fs" />
+    <None Include="shader\Skybox.vs" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

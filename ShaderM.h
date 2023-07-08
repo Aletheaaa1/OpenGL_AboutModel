@@ -17,10 +17,8 @@ private:
 
 public:
 	ShaderM(const std::string& vs_file, const std::string& fs_file, const std::string& gs_file = "");
-	~ShaderM();
 
 	void Bind();
-	void Unbind();
 
 	void SetUniform3f(const std::string& name, const float* values);
 	void SetUniform3f(const std::string& name, std::initializer_list<float> values);

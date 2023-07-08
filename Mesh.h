@@ -29,7 +29,7 @@ public:
 	std::vector<MeshTexture> textures;
 	std::vector<unsigned int> indices;
 	Mesh(std::vector<MeshVertex> vertices, std::vector<unsigned int > indices, std::vector<MeshTexture> textures);
-	void Draw(ShaderM shader);
+	void Draw(ShaderM& shader);
 private:
 	unsigned int vao;
 	unsigned int vbo;

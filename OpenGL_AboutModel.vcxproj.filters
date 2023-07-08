@@ -92,18 +92,27 @@
     <ClCompile Include="VertexBufferObject.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="ModelLoading.cpp">
+    <ClCompile Include="Texture.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Texture.cpp">
+    <ClCompile Include="Examples\ModelLoading.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Examples\Cubemaps.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="shader\model.fs">
+    <None Include="shader\ModelMaps.fs">
       <Filter>资源文件</Filter>
     </None>
-    <None Include="shader\model.vs">
+    <None Include="shader\ModelMaps.vs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="shader\Skybox.vs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="shader\Skybox.fs">
       <Filter>资源文件</Filter>
     </None>
   </ItemGroup>
