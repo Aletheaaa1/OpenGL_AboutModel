@@ -30,6 +30,7 @@ public:
 	std::vector<unsigned int> indices;
 	Mesh(std::vector<MeshVertex> vertices, std::vector<unsigned int > indices, std::vector<MeshTexture> textures);
 	void Draw(ShaderM& shader);
+	unsigned int GetVao();
 private:
 	unsigned int vao;
 	unsigned int vbo;

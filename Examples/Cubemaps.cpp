@@ -303,6 +303,7 @@ int main(void)
 	/* Loop until the user closes the window */
 	while (!glfwWindowShouldClose(window))
 	{
+		float start = glfwGetTime();
 		/* Render here */
 		ProcessInput(window);
 		glEnable(GL_DEPTH_TEST);
@@ -314,8 +315,8 @@ int main(void)
 		glm::mat4 projection = glm::perspective(45.0f, 800.0f / 600.0f, 0.1f, 100.0f);
 
 		// model
-		model = glm::translate(model, glm::vec3{0.0f, 0.0f, 0.0f});
-		model = glm::rotate(model, glm::radians(45.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::translate(model, glm::vec3{0.0f, -10.0f, 0.0f});
+		//model = glm::rotate(model, glm::radians(45.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		model_shader.Bind();
 		model_shader.SetUniformMat4("model", model);
 		model_shader.SetUniformMat4("view", view);
@@ -345,7 +346,10 @@ int main(void)
 		/* Poll for and process events */
 		glfwPollEvents();
 
-		glfwSetWindowTitle(window, "123");
+		float end = glfwGetTime();
+		float frame = std::round(1.0 / (end - start));
+		std::string fps = std::to_string(frame) + " fps";
+		glfwSetWindowTitle(window, fps.data());
 	}
 	glDeleteTextures(1, &skybox_texture);
 
