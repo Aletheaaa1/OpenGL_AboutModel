@@ -104,6 +104,12 @@
     <ClCompile Include="Examples\ModelInstance.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Examples\geometry_basic.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Examples\geometry_explosion.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="shader\ModelMaps.fs">
@@ -118,5 +124,11 @@
     <None Include="shader\Skybox.fs">
       <Filter>资源文件</Filter>
     </None>
+    <None Include="shader\Geometry\geometry_shader.vs" />
+    <None Include="shader\Geometry\geometry_shader.fs" />
+    <None Include="shader\Geometry\geometry_shader.gs" />
+    <None Include="shader\Geometry\geometry_explosion.fs" />
+    <None Include="shader\Geometry\geometry_explosion.gs" />
+    <None Include="shader\Geometry\geometry_explosion.vs" />
   </ItemGroup>
 </Project>

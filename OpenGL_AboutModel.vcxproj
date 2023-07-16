@@ -148,8 +148,12 @@
     <ClCompile Include="Examples\Cubemaps.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="Examples\geometry_basic.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Examples\geometry_explosion.cpp" />
     <ClCompile Include="Examples\ModelInstance.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="Examples\ModelLoading.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
@@ -168,6 +172,12 @@
     <ClCompile Include="VertexBufferObject.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="shader\Geometry\geometry_explosion.fs" />
+    <None Include="shader\Geometry\geometry_explosion.gs" />
+    <None Include="shader\Geometry\geometry_explosion.vs" />
+    <None Include="shader\Geometry\geometry_shader.fs" />
+    <None Include="shader\Geometry\geometry_shader.gs" />
+    <None Include="shader\Geometry\geometry_shader.vs" />
     <None Include="shader\ModelMaps.fs" />
     <None Include="shader\ModelMaps.vs" />
     <None Include="shader\Skybox.fs" />
