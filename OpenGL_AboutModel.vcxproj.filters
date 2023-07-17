@@ -110,6 +110,9 @@
     <ClCompile Include="Examples\geometry_explosion.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Examples\geometry_normal.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="shader\ModelMaps.fs">
@@ -130,5 +133,8 @@
     <None Include="shader\Geometry\geometry_explosion.fs" />
     <None Include="shader\Geometry\geometry_explosion.gs" />
     <None Include="shader\Geometry\geometry_explosion.vs" />
+    <None Include="shader\Geometry\geometry_normal.fs" />
+    <None Include="shader\Geometry\geometry_normal.gs" />
+    <None Include="shader\Geometry\geometry_normal.vs" />
   </ItemGroup>
 </Project>

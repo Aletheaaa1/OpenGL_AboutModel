@@ -151,7 +151,12 @@
     <ClCompile Include="Examples\geometry_basic.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="Examples\geometry_explosion.cpp" />
+    <ClCompile Include="Examples\geometry_explosion.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Examples\geometry_normal.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="Examples\ModelInstance.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
@@ -175,6 +180,9 @@
     <None Include="shader\Geometry\geometry_explosion.fs" />
     <None Include="shader\Geometry\geometry_explosion.gs" />
     <None Include="shader\Geometry\geometry_explosion.vs" />
+    <None Include="shader\Geometry\geometry_normal.fs" />
+    <None Include="shader\Geometry\geometry_normal.gs" />
+    <None Include="shader\Geometry\geometry_normal.vs" />
     <None Include="shader\Geometry\geometry_shader.fs" />
     <None Include="shader\Geometry\geometry_shader.gs" />
     <None Include="shader\Geometry\geometry_shader.vs" />

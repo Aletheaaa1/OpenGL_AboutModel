@@ -15,7 +15,7 @@
 #include <vector>
 #include <format>
 
-Camera camera{ glm::vec3(0, 0, 20.0f), 0.0f, 0.0f, glm::vec3(0, 1.0f, 0) };
+Camera camera{ glm::vec3(0, 10.0f, 20.0f), 0.0f, 0.0f, glm::vec3(0, 1.0f, 0) };
 
 #pragma region Interaction
 float x_last, y_last;
@@ -118,9 +118,10 @@ int main(void)
 		return -1;
 	}
 
-	Model m{ "./Model/Cube/cube.obj" };
+	Model m{ "./Model/Crisis/nanosuit.obj" };
 
-	ShaderM shader{ "./shader/Geometry/geometry_explosion.vs", "./shader/Geometry/geometry_explosion.fs", "./shader/Geometry/geometry_explosion.gs" };
+	ShaderM shader{ "./shader/model.vs", "./shader/model.fs" };
+	ShaderM normal_shader{ "./shader/Geometry/geometry_normal.vs", "./shader/Geometry/geometry_normal.fs", "./shader/Geometry/geometry_normal.gs" };
 
 	/* Loop until the user closes the window */
 	while (!glfwWindowShouldClose(window))
@@ -137,13 +138,19 @@ int main(void)
 		glm::mat4 view = camera.GetViewMatrix();;
 		glm::mat4 model = glm::mat4(1.0f);
 
+		// normal model
 		shader.Bind();
-		shader.SetUniformMat4("model", model);
 		shader.SetUniformMat4("view", view);
+		shader.SetUniformMat4("model", model);
 		shader.SetUniformMat4("projection", projection);
-		shader.SetUniform1f("time", static_cast<float>(glfwGetTime()));
-
 		m.Draw(shader);
+
+		// draw normal
+		normal_shader.Bind();
+		normal_shader.SetUniformMat4("view", view);
+		normal_shader.SetUniformMat4("model", model);
+		normal_shader.SetUniformMat4("projection", projection);
+		m.Draw(normal_shader);
 
 		camera.UpdateCameraPosition();
 		/* Swap front and back buffers */

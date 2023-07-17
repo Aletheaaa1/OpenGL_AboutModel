@@ -29,7 +29,7 @@ void main()
 	vec3 normal = GetNormal();
 
 	gl_Position = Explosion(gl_in[0].gl_Position, normal);
-	//TextCoords = (gs_in[0].TextCoords + gs_in[1].TextCoords +gs_in[2].TextCoords) / 3.0;
+	// TextCoords = (gs_in[0].TextCoords + gs_in[1].TextCoords +gs_in[2].TextCoords) / 3.0;
 	TextCoords = gs_in[0].TextCoords;
 	EmitVertex();
 	
